@@ -1,0 +1,22 @@
+body {
+  font-family: sans-serif;
+  font-size: 1.2em;
+}
+
+.cyan-text {
+  color: cyan;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.pre {
+  color: #red;
+}
+
+aside {
+  font-size: 0.7em;
+  color: #ccc;
+  font-style: italic;
+}
