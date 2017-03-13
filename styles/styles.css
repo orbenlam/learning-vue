@@ -6,6 +6,9 @@ body {
 .cyan-text {
   color: cyan;
 }
+.bold-text {
+  font-weight: bold;
+}
 
 .hidden {
   display: none !important;

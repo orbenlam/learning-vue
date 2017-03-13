@@ -7,7 +7,11 @@ var app = new Vue({
   el: '#app',
   data: {
     message: 'Mustaches cannot be used inside HTML attributes, instead use a v-bind directive',
+    classObject: {
+      // items w/ T/F
+    }
     textcolor: 'cyan-text',
+    isbold: true,
     loadtime: 'You loaded this page on ' + new Date(),
     input: '(default)',
     inputState: 'true',
