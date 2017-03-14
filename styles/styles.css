@@ -6,6 +6,18 @@ body {
 .cyan-text {
   color: cyan;
 }
+.brown-text {
+  color: brown;
+}
+.gray-text {
+  color: #ccc;
+}
+.green-text {
+  color: green;
+}
+.italic-text {
+  font-style: italic;
+}
 .bold-text {
   font-weight: bold;
 }
@@ -15,7 +27,7 @@ body {
 }
 
 .pre {
-  color: #red;
+  color: red;
 }
 
 aside {

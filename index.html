@@ -42,11 +42,14 @@
         Ask a yes/no question:
         <input v-model="question">
       </p>
-      <p>{{ answer }}</p>
+      <p class="answer" v-bind:class="[computedClass]">{{ answer }}</p>
+      <img v-if='!!image' :src="image"/>
     </div>
 
     <pre>
+      computed VS methods VS watch
       https://skyronic.com/blog/vuejs-internals-computed-properties
+      https://vuejs.org/v2/guide/computed.html
     </pre>
 
   </main>
