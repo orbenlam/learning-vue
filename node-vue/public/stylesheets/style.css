@@ -1,0 +1,41 @@
+body {
+  padding: 50px;
+  font: 1.2em "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.cyan-text {
+  color: cyan;
+}
+.brown-text {
+  color: brown;
+}
+.gray-text {
+  color: #ccc;
+}
+.green-text {
+  color: green;
+}
+.italic-text {
+  font-style: italic;
+}
+.bold-text {
+  font-weight: bold;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.pre {
+  color: red;
+}
+
+aside {
+  font-size: 0.7em;
+  color: #ccc;
+  font-style: italic;
+}
