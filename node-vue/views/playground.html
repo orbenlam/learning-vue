@@ -3,7 +3,7 @@
     <div :class="{ 'cyan-text': textcolor, 'bold-text': isbold }" :title="loadtime">
       {{ message }}
     </div>
-
+ 
     <hr>
     <h2>2-way binding</h2>
     <pre v-if="!inputState">Normal: {{ input }}</pre>
@@ -33,7 +33,12 @@
         <input v-model="question">
       </p>
       <p class="answer" v-bind:class="[computedClass]">{{ answer }}</p>
-      <img v-if='!!image' :src="image"/>
+      <template v-if="!!image">
+        <div :style="{border: '5px solid lightblue', display: 'inline-block'}">
+          <h4>image</h4>
+          <img :src="image"/>
+        </span>
+      </template>
     </div>
 
     <pre>
