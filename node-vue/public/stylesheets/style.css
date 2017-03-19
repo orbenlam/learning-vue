@@ -39,3 +39,11 @@ aside {
   color: #ccc;
   font-style: italic;
 }
+
+td {
+  text-align: center;
+}
+.color-even .even {
+  background: yellow;
+  color: firebrick;
+};

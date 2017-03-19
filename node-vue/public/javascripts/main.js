@@ -13,6 +13,10 @@ var appConstants = {
     valid: 'valid',
     invalid: 'invalid'
   },
+  kanaTable: [
+    { r : 'a', h : 'あ' , k : 'ア'},
+    { r : 'a', h : 'い' , k : 'イ'}
+  ]
 }
 var app = new Vue({
   el: '#app',
@@ -32,7 +36,9 @@ var app = new Vue({
     answer: 'I cannot give you an answer until you ask a question!',
     image: '',
     statusCode: appConstants.statusCode,
-    qstate: appConstants.statusCode.ready
+    qstate: appConstants.statusCode.ready,
+    showColoredEven: false,
+    kanas: kanaTable,
   },
   filters: {
     reverse: function(str) {
@@ -45,6 +51,9 @@ var app = new Vue({
     }
   },
   computed: {
+    tableStyle: function() {
+      return this.showColoredEven ? 'color-even' : '';
+    },
     computedClass: function() {
       // obj for T/F ; ary for classname
       var resultantClass = '';
@@ -82,6 +91,9 @@ var app = new Vue({
     }
   },
   methods: {
+    toggleTableStyle: function() {
+      this.showColoredEven = !this.showColoredEven;
+    },
     currentTime: function() {
       return Date();
     },
@@ -109,7 +121,12 @@ var app = new Vue({
       // This is the number of milliseconds we wait for the
       // user to stop typing.
       500
-    )
+    ),
+    padleft: function(value, len) {
+      var str = (value).toString();
+      var pad = Array(len + 1).join('0');
+      return pad.substring(0, len - str.length) + str;
+    }
   },
   watch: {
     question: function() {
