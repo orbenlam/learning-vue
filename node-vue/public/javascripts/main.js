@@ -12,11 +12,7 @@ var appConstants = {
     typing: 'typing',
     valid: 'valid',
     invalid: 'invalid'
-  },
-  kanaTable: [
-    { r : 'a', h : 'あ' , k : 'ア'},
-    { r : 'a', h : 'い' , k : 'イ'}
-  ]
+  }
 }
 var app = new Vue({
   el: '#app',
@@ -38,7 +34,6 @@ var app = new Vue({
     statusCode: appConstants.statusCode,
     qstate: appConstants.statusCode.ready,
     showColoredEven: false,
-    kanas: kanaTable,
   },
   filters: {
     reverse: function(str) {
