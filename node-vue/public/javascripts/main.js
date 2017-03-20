@@ -5,6 +5,11 @@ Vue.component('todo-list', {
   props: ['todo'],
   template: '<li>{{ todo.text }}</li>'
 })
+Vue.component('color-list', {
+  props: ['todo'],
+  template: '<li>{{ todo.text }}</li>'
+})
+
 var appConstants = {
   statusCode: { // ready, yes, valid, invalid, typing
     ready: 'ready',
@@ -12,7 +17,16 @@ var appConstants = {
     typing: 'typing',
     valid: 'valid',
     invalid: 'invalid'
-  }
+  },
+  colorCodes: [
+    { color: "red", value: "#f00" },
+    { color: "green", value: "#0f0" },
+    { color: "blue", value: "#00f" },
+    { color: "cyan", value: "#0ff" },
+    { color: "magenta", value: "#f0f" },
+    { color: "yellow", value: "#ff0" },
+    { color: "black", value: "#000" },
+  ]
 }
 var app = new Vue({
   el: '#app',
@@ -34,6 +48,11 @@ var app = new Vue({
     statusCode: appConstants.statusCode,
     qstate: appConstants.statusCode.ready,
     showColoredEven: false,
+    colorTable: appConstants.colorCodes,
+    colorSet: {
+      name: '',
+      code: '',
+    }
   },
   filters: {
     reverse: function(str) {
@@ -88,6 +107,17 @@ var app = new Vue({
   methods: {
     toggleTableStyle: function() {
       this.showColoredEven = !this.showColoredEven;
+    },
+    reverseItems: function(items) {
+      return items.reverse()
+    },
+    addNewColor: function() {
+      this.colorTable.push({
+        color: this.colorSet.name,
+        value: this.colorSet.code,
+      });
+      // reset
+      this.colorSet.name = this.colorSet.code = '';
     },
     currentTime: function() {
       return Date();

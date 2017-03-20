@@ -1,21 +1,34 @@
 <h2>List Rendering</h2>
+<h4>template, object, range, </h4>
 
+<mark> template v-for , range v-for</mark>
 <button v-on:click="toggleTableStyle">toggle even number highlighting</button>
-
-<pre>
-    <table cellpadding="5" border="1" id="numberList" v-bind:class="tableStyle">
+<code>
+    <table cellpadding="5" border="1" id="numbers" v-bind:class="tableStyle">
         <template v-for="row in 10">
             <tr>
                 <template v-for="col in 10">
                     <template v-if="col % 2 === 0">
-                        <!--<td class="even">{{ (row-1)*10 + col }}</td>-->
                         <td class="even">{{ padleft( (row-1)*10 + col, 3 ) }}</td>
-                    </template>
-                    <template v-else>
+                    </template><template v-else>
                         <td>{{ padleft( (row-1)*10 + col, 3 ) }}</td>
                     </template>
                 </template>
             </tr>
         </template>
     </table>
-</pre>
+</code>
+<p></p>
+<mark>object v-for</mark>
+<button v-on:click="reverseItems(colorTable)">reverse list</button>
+<button v-on:click="colorTable.pop()">pop item</button>
+<p></p>
+<input v-model='colorSet.name' placeholder="name a color">
+<input v-model='colorSet.code' placeholder="name a code" v-on:keyup.enter="addNewColor">
+<code>
+<ul id="colorCodes">
+  <li v-for="(item, key, index) in colorTable">
+    <div v-bind:style="{ 'color': '#fff', 'background-color': item.value }">{{ key }} : {{ item.color }}</div>
+  </li>
+</ul>
+</code>
