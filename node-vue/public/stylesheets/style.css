@@ -30,8 +30,8 @@ a {
   display: none !important;
 }
 
-.pre {
-  color: red;
+pre {
+  color: #ccc;
 }
 
 aside {

@@ -7,13 +7,16 @@
     <table cellpadding="5" border="1" id="numbers" v-bind:class="tableStyle">
         <template v-for="row in 10">
             <tr>
-                <template v-for="col in 10">
+                <!--<template v-for="col in 10">
                     <template v-if="col % 2 === 0">
                         <td class="even">{{ padleft( (row-1)*10 + col, 3 ) }}</td>
                     </template><template v-else>
                         <td>{{ padleft( (row-1)*10 + col, 3 ) }}</td>
                     </template>
-                </template>
+                </template>-->
+                <!--Don't have to wrapped by <template> tag-->
+                <td v-for="col in 10" v-if="col % 2 === 0" class="even ">{{ padleft( (row-1)*10 + col, 3 ) }}</td>
+                <td v-else>{{ padleft( (row-1)*10 + col, 3 ) }}</td>
             </tr>
         </template>
     </table>
@@ -31,4 +34,11 @@
     <div v-bind:style="{ 'color': '#fff', 'background-color': item.value }">{{ key }} : {{ item.color }}</div>
   </li>
 </ul>
+<pre>
+// this is wrong
+example1.items[indexOfItem] = newValue;
+
+// Vue.set
+Vue.set(example1.items, indexOfItem, newValue)
+</pre>
 </code>
