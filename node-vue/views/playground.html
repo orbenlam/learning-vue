@@ -4,10 +4,11 @@
 
 <hr>
 <h2>2-way binding</h2>
-<pre v-if="!inputState">Normal: {{ input }}</pre>
-<pre :class="inputState ? 'hidden' : ''">Reversed: {{ uppercaseInput | reverse }}</pre>
-<input :disabled="inputState" v-model="input">
-<input type="checkbox" :value="inputState" v-model="inputState" checked>disable: {{inputState}}<br>
+<input :disabled="!isInputEnable" v-model.trim="input">
+<input type="checkbox" v-model="isInputEnable" value="true">isInputEnable: {{isInputEnable}}<br>
+<kbd v-show="isInputEnable">Normal: {{ input }}</kbd>
+<br>
+<kbd :class="isInputEnable ? '' : 'hidden'">Reversed + uppercase: {{ uppercaseInput | reverse }}</kbd>
 
 <hr>
 <h2>List</h2>
@@ -19,9 +20,8 @@
 
 <hr>
 <h2>Methods</h2>
-<div>{{ currentTime() }}</div>
+<div>{{ currentTime }}</div>
 <aside>what if I have to refresh it from time to time</aside>
-<button>get now</button>
 
 <hr>
 <h2>Watch</h2>

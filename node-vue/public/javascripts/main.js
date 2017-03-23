@@ -35,8 +35,9 @@ var app = new Vue({
     textcolor: 'cyan-text',
     isbold: true,
     loadtime: 'You loaded this page on ' + new Date(),
+    currentTime: Date(),
     input: '(default)',
-    inputState: 'true',
+    isInputEnable: true,
     groceryList: [
       { text: 'Vegetables' },
       { text: 'Cheese' },
@@ -52,7 +53,15 @@ var app = new Vue({
     colorSet: {
       name: '',
       code: '',
-    }
+    },
+    checkedNames: [],
+
+  },
+  created: function() {
+    var self = this;
+    setInterval(function() {
+      self.currentTime = Date();
+    }, 500);
   },
   filters: {
     reverse: function(str) {
@@ -119,7 +128,7 @@ var app = new Vue({
       // reset
       this.colorSet.name = this.colorSet.code = '';
     },
-    currentTime: function() {
+    getCurrentTime: function() {
       return Date();
     },
     getAnswer: _.debounce(

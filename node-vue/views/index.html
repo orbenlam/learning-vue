@@ -16,11 +16,12 @@
 
     <hr>
     <h2>2-way binding</h2>
+    <input :disabled="inputState" v-model="input">
+    <input type="checkbox" :value="true" v-model="inputState">disable:{{inputState}}<br>
+
     <pre v-if="!inputState">Normal: {{ input }}</pre>
     <pre :class="inputState ? 'hidden' : ''">Reversed: {{ uppercaseInput | reverse }}</pre>
-    <input :disabled="inputState" v-model="input">
-    <input type="checkbox" :value="inputState" v-model="inputState" checked>disable: {{inputState}}<br>
-
+    
     <hr>
     <h2>List</h2>
     <ol>
