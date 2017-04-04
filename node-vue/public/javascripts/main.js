@@ -2,12 +2,37 @@ Vue.config.devtools = true;
 Vue.config.debug = true;
 
 Vue.component('todo-list', {
-  props: ['todo'],
+  props: ['todo'], //A prop is a custom attribute for passing information from parent components.
   template: '<li>{{ todo.text }}</li>'
 })
 Vue.component('color-list', {
   props: ['todo'],
   template: '<li>{{ todo.text }}</li>'
+})
+Vue.component('simple-counter', {
+  template: '<button v-on:click="counter += 1">{{ counter }}</button>',
+  // data is technically a function, so Vue won't
+  // complain, but we return the same object
+  // reference for each component instance
+  data: function () {
+    return {
+      counter: 0
+    }
+  }
+})
+Vue.component('button-counter', {
+  template: '<button v-on:click="increment">{{ counter }}</button>',
+  data: function () {
+    return {
+      counter: 0
+    }
+  },
+  methods: {
+    increment: function () {
+      this.counter += 1
+      this.$emit('increment')
+    }
+  },
 })
 
 var appConstants = {
@@ -55,7 +80,7 @@ var app = new Vue({
       code: '',
     },
     checkedNames: [],
-
+    counterSum: 0,
   },
   created: function() {
     var self = this;
@@ -160,6 +185,9 @@ var app = new Vue({
       var str = (value).toString();
       var pad = Array(len + 1).join('0');
       return pad.substring(0, len - str.length) + str;
+    },
+    incrementTotal: function() {
+      this.counterSum++
     }
   },
   watch: {
