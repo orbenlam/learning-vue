@@ -1,0 +1,8 @@
+<h2>transition</h2>
+
+<button v-on:click="isInputEnable = !isInputEnable">toggle</button>
+    <transition name="slide-fade" mode="out-in">
+    <p v-show="isInputEnable">
+        isInputEnable: {{isInputEnable}}
+    </p>
+    </transition>

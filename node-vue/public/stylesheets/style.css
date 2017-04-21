@@ -47,3 +47,22 @@ td {
   background: yellow;
   color: firebrick;
 };
+
+/*transition*/
+.slide-fade-enter-active {
+  transition: all .3s ease;
+}
+.slide-fade-leave-active {
+  transition: all .8s ease;
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active for <2.1.8 */ {
+  /*transform: translateX(10px);*/
+  opacity: 0;
+}
+
+.slide-fade-enter-to, .slide-fade-leave
+/* .slide-fade-leave-active for <2.1.8 */ {
+  /*transform: translateX(10px);*/
+  opacity: 1;
+}
